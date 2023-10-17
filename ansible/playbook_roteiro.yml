@@ -1,0 +1,14 @@
+- hosts: all
+  become: yes
+
+  tasks:
+  - name: "INSTALR PACOTE LIGHTTPD"
+    apt:
+      update_cache: yes
+      name: "lighttpd"
+      state: present
+  - name: "START LIGHTTPD"
+    shell: sudo systemctl start lighttpd
+  - name: "ENEBLE LIGHTTPD"
+    shell: sudo systemctl enable lighttpd
+
