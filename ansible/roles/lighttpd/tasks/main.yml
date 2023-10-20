@@ -26,4 +26,4 @@
   template:
     src: templates/lighttpd.conf
     dest: /etc/lighttpd/lighttpd.conf
-  notify: restart lighttpd
+  notify: restartlighttpd

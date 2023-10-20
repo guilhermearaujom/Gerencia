@@ -1,7 +1,7 @@
 ---
 # handlers file for lighttpd
-#
-- name: "restart lighttpd"
+
+- name: "restartlighttpd"
   service:
       name: lighttpd
       state: restarted
