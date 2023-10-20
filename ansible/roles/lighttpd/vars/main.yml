@@ -1,0 +1,4 @@
+---
+# vars file for lighttpd
+porta: "8080"
+rota: "/meu_diretorio_web"

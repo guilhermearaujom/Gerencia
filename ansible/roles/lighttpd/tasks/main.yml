@@ -1,0 +1,29 @@
+---
+# tasks file for lighttpd
+- name: "Instala lighttpd"
+  apt: 
+    update_cache: yes
+    name: lighttpd
+
+- name: "Init lighttpd"
+  command: "sudo systemctl start lighttpd"
+
+- name: "Enable lighttpd"
+  command: "sudo systemctl enable lighttpd"
+
+- name: "Cria diretorio"
+  file:
+    path: "/meu_diretorio_web/"
+    state: directory
+
+- name: "Cria arquivo index"
+  command: "echo 'Guilherme Araujo Matos, Davvi Duarte Rodrigues' /meu_diretorio_web/index.html"
+
+- name: "cp index.html"
+  shell: cp /home/gerencia/ansible/index.html /meu_diretorio_web
+
+- name: "Copiar lghttpd.conf"
+  template:
+    src: templates/lighttpd.conf
+    dest: /etc/lighttpd/lighttpd.conf
+  notify: restart lighttpd
